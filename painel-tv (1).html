@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel TV Sinerji</title>
+
+<style>
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+iframe {
+    width: 100vw;
+    height: 100vh;
+    border: none;
+    background: #000;
+}
+
+</style>
+</head>
+
+<body>
+
+<iframe id="painel"></iframe>
+
+<script>
+
+const paginas = [
+
+    "https://www.sinerji.com.br",
+
+    "https://comprasia.grafana.net/d/intgrz2/dashboard-de-interacoes-comprasia?orgId=1&from=now-7d&to=now&timezone=browser&var-query0=&kiosk",
+
+    "https://www.saudepreventiva.app.br",
+
+    "https://www.compras-ia.com"
+
+];
+
+let indice = 0;
+
+const iframe = document.getElementById("painel");
+
+function trocarPagina() {
+
+    iframe.src = paginas[indice];
+
+    indice++;
+
+    if (indice >= paginas.length) {
+        indice = 0;
+    }
+}
+
+trocarPagina();
+
+setInterval(trocarPagina, 10000);
+
+</script>
+
+</body>
+</html>
